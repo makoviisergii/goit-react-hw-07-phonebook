@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { removeContact } from '../redux/slice';
+import { removeContact } from '../redux/operations';
 
 export const ContactItem = ({ contact }) => {
   const { id, name, number } = contact;
