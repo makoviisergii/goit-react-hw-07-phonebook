@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeFilter } from '../redux/slice';
+import { getFilter } from '../redux/selectors';
 
 export const Filter = () => {
-  const searchStr = useSelector(state => state.contactsReducer.searchStr);
+  const filter = useSelector(getFilter);
 
   const dispatch = useDispatch();
 
@@ -14,7 +15,7 @@ export const Filter = () => {
         <Contactinput
           type="text"
           placeholder="Type to search ..."
-          value={searchStr}
+          value={filter}
           onChange={event => dispatch(changeFilter(event.target.value))}
         />
       </ContactLabel>

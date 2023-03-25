@@ -2,9 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../redux/operations';
+import { getContacts } from '../redux/selectors';
 
 export const ContactForm = () => {
-  const contacts = useSelector(state => state.contactsReducer.contacts);
+  const contacts = useSelector(getContacts);
 
   const dispatch = useDispatch();
 
@@ -13,7 +14,7 @@ export const ContactForm = () => {
     const { name, number } = evt.target.elements;
 
     if (
-      contacts.items.find(
+      contacts.find(
         contact => contact.name.toLowerCase() === name.value.toLowerCase()
       ) === undefined
     ) {
